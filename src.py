@@ -4,7 +4,7 @@ from simulated_annealing import SimulatedAnnealing
 path = '/Users/michal/PycharmProjects/MRP/datasets/*.tsp'
 data = Datasets(path)
 
-# name = 'ali535'
+#name = 'ali535'
 # name = 'berlin11_modified'
 name = 'berlin52'
 # name = 'fl417'
@@ -16,7 +16,7 @@ name = 'berlin52'
 
 
 SA = SimulatedAnnealing(data, name)
-stats = SA(t_start=3000, t_min=10)
+stats = SA(t_start=10000000000, t_min=10)
 
 for iterator, log in enumerate(stats.items()):
 

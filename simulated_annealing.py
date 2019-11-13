@@ -56,7 +56,7 @@ class SimulatedAnnealing:
         plt.title('Best distance in {}: {}'.format(self.name, min(y1).round(2)))
         plt.show()
 
-    def __call__(self, t_start, t_min):
+    def __call__(self, t_start, t_min, plot_figure=True):
         #  Initialise lists to keep best results in each epoch
         iteration_distances = []
         iteration_routes = []
@@ -88,9 +88,10 @@ class SimulatedAnnealing:
             iteration_distances.append(individual_distance)
             iteration_temperatures.append(t)
 
-        self.plot_fancy_figure(x=np.arange(0, len(iteration_temperatures)), y1=iteration_distances,
-                               y2=iteration_temperatures, label_x='iteration', label_y1='distance',
-                               label_y2='temperature')
+        if plot_figure:
+            self.plot_fancy_figure(x=np.arange(0, len(iteration_temperatures)), y1=iteration_distances,
+                                   y2=iteration_temperatures, label_x='iteration', label_y1='distance',
+                                   label_y2='temperature')
 
         return dict(zip(iteration_distances, iteration_routes))
 
